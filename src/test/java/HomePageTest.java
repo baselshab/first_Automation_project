@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class HomePageTest {
 
     WebDriver driver;
-    WebElement contactButton;
+    //WebElement contactButton;
     JavascriptExecutor jse;
     @BeforeClass
     public void setUp(){
@@ -20,13 +20,19 @@ public class HomePageTest {
         options.addArguments("start-maximized");
         driver=  WebDriverManager.chromedriver().capabilities(options).create();
         jse = (JavascriptExecutor) driver;
-        driver.get("https://wewill.tech");
+        driver.get("https://famcare.app/");
 
     }
 
     @Test(priority = 1)
-    public void contactButtonIsDisplayed()  {
-        contactButton=driver.findElement(By.xpath("//*[@id=\"ast-desktop-header\"]/div[1]/div/div/div/div[2]/div[2]/div"));
-        Assert.assertTrue(contactButton.isDisplayed());
+    public void bookingButtonIsDisplayed()  {
+        WebElement bookingButton=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[3]/a"));
+        Assert.assertTrue(bookingButton.isDisplayed());
+    }
+
+    @Test(priority = 1)
+    public void bookingButtonTextIsCorrect()  {
+        WebElement bookingButton=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[3]/a"));
+        Assert.assertEquals(bookingButton.getText(),"احجز جلستك الأولى");
     }
 }
