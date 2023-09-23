@@ -1,267 +1,201 @@
 package HomePage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static java.lang.Thread.sleep;
+import static Set.SetUp.wait;
 
 public class IntroTest {
-
-    WebDriver driver;
     //WebElement contactButton;
-    WebElement bookingButton;
-    WebElement followingButton;
-    WebElement usButton;
-    WebElement OrganButton;
-    WebElement specialistsButton;
-    WebElement famcareButton;
-    WebElement massageButton;
-    WebElement famcarelogoButton;
-    WebElement introText;
-    WebElement secandText;
-    WebElement imgintro;
-    JavascriptExecutor jse;
-    @BeforeTest
-    public void setUp(){
-        //Initialize driver
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-        driver=  WebDriverManager.chromedriver().capabilities(options).create();
-        jse = (JavascriptExecutor) driver;
-        driver.get("https://famcare.app/");
 
-    }
 
-////////////////////////////following button/////////////////////////////////////
+    ////////////////////////////following button/////////////////////////////////////
     @Test(priority = 1)
-    public void followingButtonIsDisplayed()  {
-        followingButton=driver.findElement(By.xpath("//*[@id=\"navbarContent\"]/button"));
-        Assert.assertTrue(followingButton.isDisplayed());
+    public void followingButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.followingButton().isDisplayed());
     }
 
     @Test(priority = 2)
-    public void followingButtonTextIsCorrect()  {
-        followingButton=driver.findElement(By.xpath("//*[@id=\"navbarContent\"]/button"));
-        Assert.assertEquals(followingButton.getText(),"انضم كأخصائي");
+    public void followingButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.followingButton().getText(), "انضم كأخصائي");
     }
 
     @Test(priority = 3)
     public void followingButtonIsClick() throws InterruptedException {
-        followingButton=driver.findElement(By.xpath("//*[@id=\"navbarContent\"]/button"));
-        followingButton.click();
-        sleep(2000);
+        HomePage.followingButton().click();
+
     }
 
     ////////////////////////////us button/////////////////////////////////////
     @Test(priority = 1)
-    public void usButtonIsDisplayed()  {
-        usButton=driver.findElement(By.xpath("//*[@id=\"menu-item-188\"]/a"));
-        Assert.assertTrue(usButton.isDisplayed());
+    public void usButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.usButton().isDisplayed());
     }
 
     @Test(priority = 2)
-    public void usButtonTextIsCorrect()  {
-        usButton=driver.findElement(By.xpath("//*[@id=\"menu-item-188\"]/a"));
-        Assert.assertEquals(usButton.getText(),"من نحن");
+    public void usButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.usButton().getText(), "من نحن");
     }
 
     @Test(priority = 3)
-    public void usButtonIsClick() throws InterruptedException {
-        usButton=driver.findElement(By.xpath("//*[@id=\"menu-item-188\"]/a"));
-        usButton.click();
-        sleep(2000);
+    public void usButtonIsClick() {
+        HomePage.usButton().click();
     }
 
-    ////////////////////////////Organizations Button/////////////////////////////////////
+    //    ////////////////////////////Organizations Button/////////////////////////////////////
     @Test(priority = 1)
-    public void OrganButtonIsDisplayed()  {
-        OrganButton=driver.findElement(By.xpath("//*[@id=\"menu-item-187\"]/a"));
-        Assert.assertTrue(OrganButton.isDisplayed());
+    public void OrganButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.OrganButton().isDisplayed());
     }
 
     @Test(priority = 2)
-    public void OrganButtonTextIsCorrect()  {
-        OrganButton=driver.findElement(By.xpath("//*[@id=\"menu-item-187\"]/a"));
-        Assert.assertEquals(OrganButton.getText(),"المنظمات");
+    public void OrganButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.OrganButton().getText(), "المنظمات");
     }
 
     @Test(priority = 3)
-    public void OrganButtonIsClick() throws InterruptedException {
-        OrganButton=driver.findElement(By.xpath("//*[@id=\"menu-item-187\"]/a"));
-        OrganButton.click();
-        sleep(2000);
+    public void OrganButtonIsClick() {
+        HomePage.OrganButton().click();
     }
 
-    ////////////////////////////academy Button/////////////////////////////////////
+    //    ////////////////////////////academy Button/////////////////////////////////////
     @Test(priority = 1)
-    public void academyButtonIsDisplayed()  {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"menu-item-1227\"]/a"));
-        Assert.assertTrue(bookingButton.isDisplayed());
+    public void academyButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.academyButton().isDisplayed());
     }
 
     @Test(priority = 2)
-    public void academyButtonTextIsCorrect()  {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"menu-item-1227\"]/a"));
-        Assert.assertEquals(bookingButton.getText(),"الأكاديمية");
+    public void academyButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.academyButton().getText(), "الأكاديمية");
     }
 
     @Test(priority = 3)
-    public void academyButtonIsClick() throws InterruptedException {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"menu-item-1227\"]/a"));
-        bookingButton.click();
-        sleep(2000);
+    public void academyButtonIsClick() {
+        HomePage.academyButton().click();
     }
+
     ////////////////////////////blogger Button/////////////////////////////////////
     @Test(priority = 1)
-    public void bloggerButtonIsDisplayed()  {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"menu-item-2633\"]/a"));
-        Assert.assertTrue(bookingButton.isDisplayed());
+    public void bloggerButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.bloggerButton().isDisplayed());
     }
 
     @Test(priority = 2)
-    public void bloggerButtonTextIsCorrect()  {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"menu-item-2633\"]/a"));
-        Assert.assertEquals(bookingButton.getText(),"المدونة");
+    public void bloggerButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.bloggerButton().getText(), "المدونة");
     }
 
     @Test(priority = 3)
     public void bloggerButtonIsClick() throws InterruptedException {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"menu-item-2633\"]/a"));
-        bookingButton.click();
-        sleep(2000);
+        HomePage.bloggerButton().click();
+
     }
 
     ////////////////////////////Specialists Button/////////////////////////////////////
     @Test(priority = 1)
-    public void specialistsButtonIsDisplayed()  {
-        specialistsButton=driver.findElement(By.xpath("//*[@id=\"menu-item-1026\"]/a"));
-        Assert.assertTrue(specialistsButton.isDisplayed());
+    public void specialistsButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.specialistsButton().isDisplayed());
     }
 
     @Test(priority = 2)
-    public void specialistsButtonTextIsCorrect()  {
-        specialistsButton=driver.findElement(By.xpath("//*[@id=\"menu-item-1026\"]/a"));
-        Assert.assertEquals(specialistsButton.getText(),"الأخصائيين");
+    public void specialistsButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.specialistsButton().getText(), "الأخصائيين");
     }
 
     @Test(priority = 3)
     public void specialistsButtonIsClick() throws InterruptedException {
-        specialistsButton=driver.findElement(By.xpath("//*[@id=\"menu-item-1026\"]/a"));
-        specialistsButton.click();
-        sleep(2000);
+        HomePage.specialistsButton().click();
     }
 
     ////////////////////////////famcare Button/////////////////////////////////////
-    @Test(priority = 1)
-    public void famcareButtonIsDisplayed()  {
-        famcareButton=driver.findElement(By.xpath("//*[@id=\"menu-item-6\"]/a"));
-        Assert.assertTrue(famcareButton.isDisplayed());
+    @Test(priority = 4)
+    public void famcareButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.famcareButton().isDisplayed());
     }
 
-    @Test(priority = 2)
-    public void famcareButtonTextIsCorrect()  {
-        famcareButton=driver.findElement(By.xpath("//*[@id=\"menu-item-6\"]/a"));
-        Assert.assertEquals(famcareButton.getText(),"فامكير");
+    @Test(priority = 5)
+    public void famcareButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.famcareButton().getText(), "فامكير");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 6)
     public void famcareButtonIsClick() throws InterruptedException {
-        famcareButton=driver.findElement(By.xpath("//*[@id=\"menu-item-6\"]/a"));
-        famcareButton.click();
-        sleep(2000);
+        HomePage.famcareButton().click();
+
     }
 
     ////////////////////////////famcarelogo Button/////////////////////////////////////
-    @Test(priority = 1)
-    public void famcarelogoIsDisplayed()  {
-        famcarelogoButton=driver.findElement(By.xpath("//*[@id=\"menu-item-6\"]/a"));
-        Assert.assertTrue(famcarelogoButton.isDisplayed());
+    @Test(priority = 7)
+    public void famcarelogoIsDisplayed() {
+        Assert.assertTrue(HomePage.famcarelogoButton().isDisplayed());
     }
 
-    @Test(priority = 2)
-    public void famcarelogoTextIsCorrect()  {
-        famcarelogoButton=driver.findElement(By.xpath("//*[@id=\"menu-item-6\"]/a"));
-        Assert.assertEquals(famcarelogoButton.getText(),"فامكير");
+    @Test(priority = 8)
+    public void famcarelogoTextIsCorrect() {
+        Assert.assertEquals(HomePage.famcarelogoButton().getText(), "فامكير");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 9)
     public void famcarelogoIsClick() throws InterruptedException {
-        famcarelogoButton=driver.findElement(By.xpath("//*[@id=\"menu-item-6\"]/a"));
-        famcarelogoButton.click();
-        sleep(2000);
+        HomePage.famcarelogoButton().click();
     }
+
     ////////////////////////////booking Button/////////////////////////////////////
-    @Test(priority = 1)
-    public void bookingButtonIsDisplayed()  {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[3]/a"));
-        Assert.assertTrue(bookingButton.isDisplayed());
+    @Test(priority = 10)
+    public void bookingButtonIsDisplayed() {
+        Assert.assertTrue(HomePage.bookingButton().isDisplayed());
     }
 
-    @Test(priority = 2)
-    public void bookingButtonTextIsCorrect()  {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[3]/a"));
-        Assert.assertEquals(bookingButton.getText(),"احجز جلستك الأولى");
+    @Test(priority = 11)
+    public void bookingButtonTextIsCorrect() {
+        Assert.assertEquals(HomePage.bookingButton().getText(), "احجز جلستك الأولى");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 12)
     public void bookingButtonIsClick() throws InterruptedException {
-        bookingButton=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[3]/a"));
-        bookingButton.click();
-        sleep(2000);
-    }
-    ////////////////////////////Massage Button/////////////////////////////////////
-    @Test(priority = 1)
-    public void massageIsDisplayed()  {
-        massageButton=driver.findElement(By.xpath("//*[@id=\"intercom-container\"]/div/div/div[1]\n"));
-        Assert.assertTrue(massageButton.isDisplayed());
+        HomePage.bookingButton().click();
     }
 
-    @Test(priority = 3)
+    //    ////////////////////////////Massage Button/////////////////////////////////////
+    @Test(priority = 13)
+    public void massageIsDisplayed() {
+        Assert.assertTrue(HomePage.massageButton().isDisplayed());
+    }
+
+    @Test(priority = 14)
     public void massageIsClick() throws InterruptedException {
-        massageButton=driver.findElement(By.xpath("//*[@id=\"intercom-container\"]/div/div/div[1]\n"));
-        massageButton.click();
-        sleep(2000);
+        HomePage.massageButton().click();
     }
 
-    ////////////////////////////introText text/////////////////////////////////////
-    @Test(priority = 1)
-    public void introTextIsDisplayed()  {
-        introText=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[1]/h2"));
-        Assert.assertTrue(introText.isDisplayed());
+    //    ////////////////////////////introText text/////////////////////////////////////
+    @Test(priority = 15)
+    public void introTextIsDisplayed() {
+        Assert.assertTrue(HomePage.introText().isDisplayed());
     }
 
-    @Test(priority = 2)
-    public void introTextTextIsCorrect()  {
-        introText=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[1]/h2"));
-        Assert.assertEquals(introText.getText(),"ابدأ جلستك الأولى مع مستشارك الي يناسبك مع خصم 60%");
+    @Test(priority = 16)
+    public void introTextTextIsCorrect() {
+        Assert.assertEquals(HomePage.introText().getText(), "ابدأ جلستك الأولى مع مستشارك الي يناسبك مع خصم 60%");
     }
 
-    ////////////////////////////secand text/////////////////////////////////////
-    @Test(priority = 1)
-    public void secandTextIsDisplayed()  {
-        secandText=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[2]/p"));
-        Assert.assertTrue(secandText.isDisplayed());
+    //    ////////////////////////////secand text/////////////////////////////////////
+    @Test(priority = 17)
+    public void secandTextIsDisplayed() {
+        Assert.assertTrue(HomePage.secandText().isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(HomePage.secandText()));
     }
 
-    @Test(priority = 2)
-    public void secandTextTextIsCorrect()  {
-        secandText=driver.findElement(By.xpath("//*[@id=\"heroText\"]/div/div[2]/p"));
-        Assert.assertEquals(secandText.getText(),"لاتستهين بخطواتك، أخصائيين مرخصين متوفرين بتخصصات مختلفة .. خذ القرار الآن ");
-    }
-    ////////////////////////////Img intro/////////////////////////////////////
-    @Test(priority = 1)
-    public void imgintroIsDisplayed()  {
-        imgintro=driver.findElement(By.xpath("//*[@id=\"heroSection\"]/div/div/div[1]/div/div[1]/img"));
-        Assert.assertTrue(imgintro.isDisplayed());
+    @Test(priority = 18)
+    public void secandTextTextIsCorrect() {
+        Assert.assertEquals(HomePage.secandText().getText(), "لاتستهين بخطواتك، أخصائيين مرخصين متوفرين بتخصصات مختلفة .. خذ القرار الآن ");
     }
 
+    //    ////////////////////////////Img intro/////////////////////////////////////
+    @Test(priority = 19)
+    public void imgintroIsDisplayed() {
+        Assert.assertTrue(HomePage.imgintro().isDisplayed());
+    }
 
 
 }

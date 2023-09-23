@@ -58,19 +58,19 @@ public class SpecialistsSectionTest {
 
     }
 
-    @Test(priority = 3)
+    @Test(priority = 5)
     public void bookIsDisplayed()  {
         bookButton=driver.findElement(By.xpath("//*[@id=\"bookNow\"]"));
         Assert.assertTrue(bookButton.isDisplayed());
     }
 
-    @Test(priority = 4)
+    @Test(priority = 6)
     public void bookTextIsCorrect()  {
         bookButton=driver.findElement(By.xpath("//*[@id=\"bookNow\"]"));
         Assert.assertEquals(bookButton.getText(),"شركة مجتمعية");
 
     }
-    @Test(priority = 5)
+    @Test(priority = 7)
     public void bookIsClcik()  {
         bookButton=driver.findElement(By.xpath("//*[@id=\"bookNow\"]"));
         Assert.assertTrue(bookButton.isDisplayed());
